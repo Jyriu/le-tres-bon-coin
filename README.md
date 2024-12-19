@@ -1,5 +1,12 @@
 # Le Très Bon Coin - Application MERN Stack
 
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
 ## 📝 Description
 Une application de petites annonces inspirée du Bon Coin, développée dans le cadre d'un projet IPSSI. Cette application permet aux utilisateurs de publier, consulter et gérer des annonces dans différentes catégories.
 
@@ -13,16 +20,16 @@ Une application de petites annonces inspirée du Bon Coin, développée dans le 
 ## 🛠 Technologies Utilisées
 
 ### Backend
-- **Node.js** & **Express.js** - Pour le serveur et l'API REST
-- **MongoDB** avec **Mongoose** - Pour la base de données
-- **JWT** - Pour l'authentification sécurisée
-- **Bcrypt** - Pour le hachage des mots de passe
+- ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) & ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white) - Pour le serveur et l'API REST
+- ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) avec ![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat-square&logo=mongoose&logoColor=white) - Pour la base de données
+- ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=JSON%20web%20tokens&logoColor=white) - Pour l'authentification sécurisée
+- ![Bcrypt](https://img.shields.io/badge/Bcrypt-003A70?style=flat-square&logo=lock&logoColor=white) - Pour le hachage des mots de passe
 
 ### Frontend
-- **React** avec **TypeScript** - Pour l'interface utilisateur
-- **React Router** - Pour la navigation
-- **Axios** - Pour les requêtes HTTP
-- **CSS Modules** - Pour le styling modulaire
+- ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) avec ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) - Pour l'interface utilisateur
+- ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=react-router&logoColor=white) - Pour la navigation
+- ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white) - Pour les requêtes HTTP
+- ![CSS Modules](https://img.shields.io/badge/CSS_Modules-000000?style=flat-square&logo=css3&logoColor=white) - Pour le styling modulaire
 
 ## ✨ Fonctionnalités Implémentées
 
