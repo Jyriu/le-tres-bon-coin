@@ -8,7 +8,7 @@
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
 ## 📝 Description
-Une application de petites annonces inspirée du Bon Coin, développée dans le cadre d'un projet IPSSI. Cette application permet aux utilisateurs de publier, consulter et gérer des annonces dans différentes catégories.
+Une application de petites annonces inspirée de Leboncoin, développée dans le cadre d'un projet d'apprentissage en développement web. Cette application permet aux utilisateurs de publier, consulter et gérer des annonces dans différentes catégories.
 
 ## 🎯 Objectifs du Projet
 - Créer une application complète avec la stack MERN
