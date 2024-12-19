@@ -26,13 +26,19 @@ const Register = async (req, res) => {
 
     await user.save();
 
+    // Créer le token JWT
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
     res.status(201).json({
       message: "Utilisateur créé avec succès",
       user: {
         id: user._id,
         username: user.username,
         email: user.email,
-      }
+      },
+      token
     });
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -43,15 +49,20 @@ const Register = async (req, res) => {
 const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("Tentative de connexion avec:", { email });
 
     // Vérifier si l'utilisateur existe
     const user = await User.findOne({ email });
+    console.log("Utilisateur trouvé:", user ? "Oui" : "Non");
+    
     if (!user) {
       return res.status(400).json({ message: "Email ou mot de passe incorrect" });
     }
 
     // Vérifier le mot de passe avec bcrypt
     const isValidPassword = await bcrypt.compare(password, user.password);
+    console.log("Mot de passe valide:", isValidPassword ? "Oui" : "Non");
+    
     if (!isValidPassword) {
       return res.status(400).json({ message: "Email ou mot de passe incorrect" });
     }
@@ -70,6 +81,7 @@ const Login = async (req, res) => {
       token,
     });
   } catch (error) {
+    console.error("Erreur de connexion:", error);
     res.status(400).json({ message: error.message });
   }
 };
@@ -167,6 +179,7 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const userId = req.params.id;
+    console.log("Tentative de suppression de l'utilisateur:", userId);
 
     // Vérifier si l'utilisateur existe avant de supprimer
     const user = await User.findById(userId);
@@ -175,11 +188,11 @@ const deleteUser = async (req, res) => {
     }
 
     // Supprimer d'abord toutes les annonces de l'utilisateur
-    const deleteResult = await Announce.deleteMany({ author: mongoose.Types.ObjectId(userId) });
+    const deleteResult = await Announce.deleteMany({ author: new mongoose.Types.ObjectId(userId) });
     console.log(`${deleteResult.deletedCount} annonces supprimées`);
     
     // Puis supprimer l'utilisateur
-    await user.remove();
+    await User.findByIdAndDelete(userId);
 
     res.status(200).json({ 
       message: 'Utilisateur et ses annonces supprimés avec succès',
@@ -187,7 +200,10 @@ const deleteUser = async (req, res) => {
     });
   } catch (error) {
     console.error('Erreur lors de la suppression:', error);
-    res.status(500).json({ message: 'Erreur lors de la suppression de l\'utilisateur', error: error.message });
+    res.status(500).json({ 
+      message: 'Erreur lors de la suppression de l\'utilisateur', 
+      error: error.message 
+    });
   }
 };
 
