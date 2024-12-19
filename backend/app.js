@@ -1,32 +1,34 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+// Import des middlewares
+const { jsonParser, corsHandler, requestLogger, errorHandler } = require('./middleware/global');
+
+// Import des routes
+const userRoutes = require('./routes/userRoutes');
+const announceRoutes = require('./routes/announceRoutes');
+
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// Connexion à MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connecté à MongoDB'))
+  .catch(err => console.error('Erreur de connexion à MongoDB:', err));
 
-const PORT = process.env.PORT || 5000;
-
-const mongoose = require("mongoose");
-mongoose
-  .connect("mongodb+srv://samiyezza:8a08ad81@cluster0.uyxehij.mongodb.net/leboncoin", {})
-  .then(() => {
-    console.log("Connected to the mongoDB database!");
-  })
-  .catch((err) => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
-
-const userRoutes = require("./routes/userRoutes");
-const announceRoutes = require("./routes/announceRoutes");
+// Application des middlewares globaux
+app.use(jsonParser);
+app.use(corsHandler);
+app.use(requestLogger);
 
 // Routes
-app.use("/", userRoutes);
-app.use("/announces", announceRoutes);
+app.use('/users', userRoutes);
+app.use('/announces', announceRoutes);
 
+// Middleware de gestion des erreurs
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Serveur démarré sur le port ${PORT}`);
 });

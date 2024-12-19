@@ -1,46 +1,58 @@
 # Le Très Bon Coin - Application MERN Stack
 
-Une application de petites annonces inspirée du Bon Coin, développée avec la stack MERN (MongoDB, Express, React, Node.js).
+## 📝 Description
+Une application de petites annonces inspirée du Bon Coin, développée dans le cadre d'un projet IPSSI. Cette application permet aux utilisateurs de publier, consulter et gérer des annonces dans différentes catégories.
 
-## Technologies Utilisées
+## 🎯 Objectifs du Projet
+- Créer une application complète avec la stack MERN
+- Implémenter un système d'authentification sécurisé
+- Gérer les opérations CRUD pour les utilisateurs et les annonces
+- Utiliser les states locaux pour la gestion d'état
+- Assurer la sécurité avec JWT et bcrypt
+
+## 🛠 Technologies Utilisées
 
 ### Backend
-- Node.js
-- Express.js
-- MongoDB avec Mongoose
-- JWT pour l'authentification
-- Bcrypt pour le hachage des mots de passe
+- **Node.js** & **Express.js** - Pour le serveur et l'API REST
+- **MongoDB** avec **Mongoose** - Pour la base de données
+- **JWT** - Pour l'authentification sécurisée
+- **Bcrypt** - Pour le hachage des mots de passe
 
 ### Frontend
-- React
-- TypeScript
-- Axios pour les requêtes HTTP
-- React Router pour la navigation
-- States locaux pour la gestion d'état
-- CSS modules pour le styling
+- **React** avec **TypeScript** - Pour l'interface utilisateur
+- **React Router** - Pour la navigation
+- **Axios** - Pour les requêtes HTTP
+- **CSS Modules** - Pour le styling modulaire
 
-## Fonctionnalités
+## ✨ Fonctionnalités Implémentées
 
-### Authentification
+### 🔐 Authentification
 - Inscription avec validation des champs
 - Connexion sécurisée avec JWT
 - Protection des routes privées
+- Hachage des mots de passe avec bcrypt
 
-### Gestion des Utilisateurs
-- Création de compte
-- Modification du profil
+### 👥 Gestion des Utilisateurs
+- Création de compte utilisateur
+- Modification des informations du profil
 - Suppression de compte
-- Liste des utilisateurs (admin)
+- Liste des utilisateurs (interface admin)
 
-### Gestion des Annonces
-- Création d'annonces avec catégories
-- Modification d'annonces
-- Suppression d'annonces
+### 📢 Gestion des Annonces
+- Création d'annonces avec catégorisation
+- Modification et suppression d'annonces
 - Liste des annonces avec filtrage par catégorie
-- Page de détail des annonces
+- Page détaillée pour chaque annonce
 - Association automatique de l'auteur via JWT
 
-## Installation
+## 🚀 Installation et Démarrage
+
+### Prérequis
+- Node.js (v14 ou supérieur)
+- MongoDB
+- npm ou yarn
+
+### Installation
 
 1. Clonez le repository
 ```bash
@@ -60,56 +72,62 @@ cd frontend
 npm install
 ```
 
-4. Configurez les variables d'environnement
-- Créez un fichier `.env` dans le dossier backend avec :
-```
+4. Configuration
+Créez un fichier `.env` dans le dossier backend avec :
+```env
 MONGODB_URI=votre_uri_mongodb
 JWT_SECRET=votre_secret_jwt
 PORT=3001
 ```
 
-## Lancement
+### Démarrage
 
-1. Démarrez le serveur backend
+1. Backend
 ```bash
 cd backend
 npm start
 ```
 
-2. Démarrez le client frontend
+2. Frontend
 ```bash
 cd frontend
 npm start
 ```
 
-L'application sera accessible à l'adresse : `http://localhost:3000`
+L'application sera accessible à : `http://localhost:3000`
 
-## Structure du Projet
+## 📁 Structure du Projet
 
 ```
 le-tres-bon-coin/
 ├── backend/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   └── app.js
+│   ├── controllers/    # Logique métier
+│   ├── middleware/     # Middlewares (auth, validation)
+│   ├── models/         # Modèles Mongoose
+│   ├── routes/         # Routes API
+│   └── app.js         # Point d'entrée du serveur
 └── frontend/
     ├── public/
     └── src/
-        ├── components/
-        ├── pages/
-        └── App.tsx
+        ├── components/ # Composants réutilisables
+        ├── pages/      # Pages de l'application
+        └── App.tsx    # Composant racine
 ```
 
-## Sécurité
-
-- Mots de passe hashés avec bcrypt
-- Authentification par JWT
-- Validation des données côté serveur et client
-- Protection des routes sensibles
+## 🔒 Sécurité
+- Authentification JWT pour les routes protégées
+- Hachage des mots de passe avec bcrypt
+- Validation des données côté client et serveur
+- Protection CORS
 - Gestion sécurisée des tokens
 
-## Auteur
+## ✅ Points Clés du Projet
+- Architecture MERN complète et fonctionnelle
+- Système d'authentification robuste
+- Interface utilisateur intuitive et responsive
+- Gestion des états avec states locaux React
+- Code TypeScript pour plus de fiabilité
+- Structure de projet claire et maintenable
 
+## 👨‍💻 Auteur
 Sami YEZZA ([@Jyriu](https://github.com/Jyriu)) 
