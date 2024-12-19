@@ -94,14 +94,14 @@ PORT=3001
 cd backend
 npm start
 ```
+Le serveur backend démarrera sur : `http://localhost:3001`
 
 2. Frontend
 ```bash
 cd frontend
 npm start
 ```
-
-L'application sera accessible à : `http://localhost:3000`
+L'application frontend sera accessible sur : `http://localhost:3000`
 
 ## 📁 Structure du Projet
 
